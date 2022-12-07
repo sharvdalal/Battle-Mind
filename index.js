@@ -1,16 +1,20 @@
 let correctPaths = ["img2","img5","img8","img9"];
 var idx = 0;
 let logicArray = [["img1","img2","img3"],["img4","img5","img6"],["img7","img8","img9"]];
-// let myCurrentPosition = [0,0];
+let myCurrentPosition = [0,0];
 let myCurrimg = 1;
 // let optionsToGive = [];
 var gameStarted = false;
 let idx1 = 0;
 let idx2 = 0;
+let possibleOptions = [];
+let option1Idx = [];
+let option2Idx = [];
 var option1 = "";
 var option2 = "";
 let myCurrPosition = logicArray[idx1][idx2];
 var clickedOption ="";
+let ans = "";
 
 
 $("#img"+myCurrimg).html("<img src='images/swordsman.png'></img>")
@@ -31,7 +35,7 @@ var questions = {
     },
     {
         ques1:"Year ____",
-        corr_ans: "1",
+        corr_ans: "3",
         wrong_ans: "2",
        
     },
@@ -51,9 +55,10 @@ if(!gameStarted){
 
 $(document).on("keydown", function(){
     $("h1").text("Game Started!!");
-    
     Options();
     giveRiddle(idx);
+    
+    
     
     
 });
@@ -65,8 +70,24 @@ $(".box").on("click", function(){
     if(clickedOption === correctPaths[idx]){
         $(".box").html("");
         $("#" + clickedOption).html("<img src='images/swordsman.png'></img>");
-        idx++;
 
+    var op1idx1 = possibleOptions[0][0];
+    var op1idx2 = possibleOptions[0][1];
+    var op2idx1 = possibleOptions[1][0];
+    var op2idx2 = possibleOptions[1][1];
+    var tempansoption = logicArray[op1idx1][op1idx2];
+    if(tempansoption === correctPaths[idx]){
+        myCurrentPosition = [op1idx1,op1idx2];
+    }
+    else{
+        myCurrentPosition = [op2idx1,op2idx2];
+    }
+    idx++;
+    
+        
+    }
+    else{
+        startOver();
     }
    
 })
@@ -87,6 +108,13 @@ function Options(){
     giveOptionsIdx();
     currect_option = questions.ques[idx].corr_ans;
     wrong_option = questions.ques[idx].wrong_ans;
+    var op1idx1 = possibleOptions[0][0];
+    var op1idx2 = possibleOptions[0][1];
+    var op2idx1 = possibleOptions[1][0];
+    var op2idx2 = possibleOptions[1][1];
+
+    option1 = logicArray[op1idx1][op1idx2];
+    option2 = logicArray[op2idx1][op2idx2];
 
     if(option1 === correctPaths[idx]){
         $("#" + option1).text(currect_option);
@@ -98,16 +126,67 @@ function Options(){
         
     }
     
+    
    
 }
 function giveOptionsIdx(){
-    idx1++;
-    option1 = logicArray[idx1][idx2];
-    idx1--;
-    idx2++;
-    option2 = logicArray[idx1][idx2];
-    idx2--;
+    if(myCurrentPosition[0] == 2 &&myCurrentPosition[1] == 1 || myCurrentPosition[0] == 1 &&myCurrentPosition[1] == 2) {
+        lastStage1();
 
-     
+    }
+    var optionsCount = 0;
+    var i = 0;
+    if(myCurrentPosition[1] < logicArray[0].length -1){
+        possibleOptions[i] = [myCurrentPosition[0], myCurrentPosition[1] + 1];
+        optionsCount++;
+        i++;
+        if(optionsCount == 2)return;
+    }
+    else{
+        possibleOptions[i] = [myCurrentPosition[0] + 1, myCurrentPosition[1] - 1];
+        optionsCount++;
+        if(optionsCount == 2)return;
+    }
+    if(myCurrentPosition[0] < logicArray.length -1){
+        possibleOptions[i] = [myCurrentPosition[0] + 1, myCurrentPosition[1]];
+        optionsCount++;
+        if(optionsCount == 2)return;
+    }
+    else{
+        possibleOptions[i] = [myCurrentPosition[0] - 1, myCurrentPosition[1] + 1];
+        optionsCount++;
+        if(optionsCount == 2)return;
+    }
+    
+}
+
+function lastStage1(){
+    ans = prompt(questions.ques[idx].ques1);
+    if(ans == questions.ques[idx].corr_ans){
+        $("h1").text("You Moved to Last Stage! Get Ready for Final Question");
+        
+        $("#img9").html("<img src='images/swordsman.png'></img>")
+        $(".box").html("");
+
+    }
+
+}
+
+function startOver(){
+$(".box").html("");
+$("#img"+myCurrimg).html("<img src='images/swordsman.png'></img>");
+$("h1").text("Game Over... Press Any Key to Restart!!");
+myCurrentPosition = [0,0];
+myCurrimg = 1;
+gameStarted = false;
+idx1 = 0;
+idx2 = 0;
+possibleOptions = [];
+option1Idx = [];
+option2Idx = [];
+option1 = "";
+option2 = "";
+clickedOption ="";
+idx = 0;
 
 }
