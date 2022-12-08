@@ -10,6 +10,7 @@ let logicArray = [
 let myCurrentPosition = [0, 0];
 let myCurrimg = 1;
 // let optionsToGive = [];
+//comment
 var gameStarted = false;
 let idx1 = 0;
 let idx2 = 0;
