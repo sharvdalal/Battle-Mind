@@ -89,15 +89,24 @@ var questions = {
   ],
 };
 
-if (!gameStarted) {
-  gameStarted = true;
+
 
   $(document).on("keydown", function () {
+    if (!gameStarted) {
+      gameStarted = true;
     $("h1").text("Game Started!!");
     Options();
     giveRiddle(idx);
+  }
   });
-}
+  $(document).on("keydown", function(event){
+      
+    if(event.keyCode == 32){
+
+    }
+    
+  })
+
 
 $(".box").on("click", function () {
   clickedOption = $(this).attr("id");
@@ -109,13 +118,22 @@ $(".box").on("click", function () {
     var op1idx2 = possibleOptions[0][1];
     var op2idx1 = possibleOptions[1][0];
     var op2idx2 = possibleOptions[1][1];
+
     var tempansoption = logicArray[op1idx1][op1idx2];
+
+
     if (tempansoption === correctPaths[idx]) {
       myCurrentPosition = [op1idx1, op1idx2];
     } else {
       myCurrentPosition = [op2idx1, op2idx2];
     }
     idx++;
+    setTimeout(() => {
+      giveRiddle(idx);
+      Options();
+    }, 500);
+   
+  
   } else {
     startOver();
   }
@@ -132,6 +150,7 @@ function Options() {
   giveOptionsIdx();
   currect_option = questions.ques[idx].corr_ans;
   wrong_option = questions.ques[idx].wrong_ans;
+  
   var op1idx1 = possibleOptions[0][0];
   var op1idx2 = possibleOptions[0][1];
   var op2idx1 = possibleOptions[1][0];
@@ -162,6 +181,7 @@ function giveOptionsIdx() {
     optionsCount++;
     if (optionsCount == 2) return;
   }
+
   if (myCurrentPosition[0] < logicArray.length - 1) {
     possibleOptions[i] = [myCurrentPosition[0] + 1, myCurrentPosition[1]];
     optionsCount++;

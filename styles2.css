@@ -5,8 +5,8 @@ body{
         display: grid;
         grid-template-columns: 20% 20% 20% 20% 20%;
         position: relative;
-        height: 450px;
-        width: 450px;
+        height: 750px;
+        width: 750px;
         /* border: solid 1px black; */
         /* max-width: 500px; */
         margin: auto;
@@ -14,27 +14,44 @@ body{
          
       }
       h1{
-        
+        margin-top: 50px;
+        margin-bottom: unset;
+        font-size: 60px;
         text-align: center;
         padding-bottom: 40px;
         color: whitesmoke;
-         font-weight: 900; 
+        font-weight: 900; 
         
       }
-      .btn{
-        cursor: pointer;
-        background-color: #61892F;
-        color: whitesmoke;
-        border-radius: 10px;
-        width: 107px;
-        height: 30px;
-        font-weight:800;
+      .button{
+        text-align: center;
       }
-      
-      .btn:hover{
-
-        color: #222629;
-      }
+      .btn{ 
+        background-color: #afebc1; 
+        border: none; 
+        border-radius: 6px; 
+        color: rgb(13, 1, 1);
+        flex-grow: 1;
+        font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
+        font-size: 15px; 
+        height: 36px; 
+        line-height: 20px; 
+        margin-left: 8px;
+        margin-right: 6px; 
+        min-width: 185px; 
+        padding: 0 16px 0 16px; 
+        transition: 0.3s; 
+        cursor: pointer; 
+        margin: 0 25px 20px 25px;
+        } 
+        
+        .btn:hover{
+        background-color: #e4eaf8; 
+        color: #050505; 
+        font-size: 15px; 
+        transition: 0.3s; 
+        } 
+        
       img{
          width: 16%;
         position: absolute;
@@ -44,10 +61,22 @@ body{
       .box{
         background-color: #61892F;
         border: solid 1px black;
-      
+        line-height: 0px;
         padding: 10px;
          overflow: hidden;
         margin: 0.5px;
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        font-size: 15px;
 
         
       }
+      .box p{
+        color: wheat;
+      }
+      
+
+
+      
+        
