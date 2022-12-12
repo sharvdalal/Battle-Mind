@@ -26,31 +26,23 @@ body{
       .button{
         text-align: center;
       }
-      .btn{ 
-        background-color: #afebc1; 
-        border: none; 
-        border-radius: 6px; 
-        color: rgb(13, 1, 1);
-        flex-grow: 1;
-        font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
-        font-size: 15px; 
-        height: 36px; 
-        line-height: 20px; 
-        margin-left: 8px;
-        margin-right: 6px; 
-        min-width: 185px; 
-        padding: 0 16px 0 16px; 
-        transition: 0.3s; 
-        cursor: pointer; 
-        margin: 0 25px 20px 25px;
-        } 
-        
-        .btn:hover{
-        background-color: #e4eaf8; 
-        color: #050505; 
-        font-size: 15px; 
-        transition: 0.3s; 
-        } 
+      .btn{
+        cursor: pointer;
+        background-color: #61892F;
+        color: whitesmoke;
+        border-radius: 10px;
+        width: 107px;
+        height: 40px;
+        font-weight:800;
+        margin-bottom: 20px;
+        font-size: 15px;
+        margin-left: 20px;
+      }
+      
+      .btn:hover{
+
+        color: #222629;
+      }
         
       img{
          width: 16%;

@@ -111,8 +111,13 @@ var questions = {
 $(".box").on("click", function () {
   clickedOption = $(this).attr("id");
   if (clickedOption === correctPaths[idx]) {
-    $(".box").html("");
+    $("#" + option1).html("");
+    $("#" + option2).html("");
     $("#" + clickedOption).html("<img src='images/swordsman.png'></img>");
+  
+    let removeCurrImg = logicArray[myCurrentPosition[0]][myCurrentPosition[1]];
+    $("#" + removeCurrImg).html("");
+   
 
     var op1idx1 = possibleOptions[0][0];
     var op1idx2 = possibleOptions[0][1];
