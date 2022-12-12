@@ -32,14 +32,6 @@ $("#img" + myCurrimg).html("<img src='images/swordsman.png'></img>");
 
 
 
-const finalStageQues = {
-     ques : [
-      {
-        ques1 : "where is dypcoe",
-        ans : "akurdi"
-      }
-     ]
-}
 
 
 
@@ -166,6 +158,8 @@ function giveOptionsIdx() {
 function lastStage(){
   let question = finalStageQues.ques[0].ques1;
   let answer = finalStageQues.ques[0].ans;
+
+  
   let userAns = prompt(question);
 
   if(userAns == answer){
@@ -266,3 +260,14 @@ var questions = {
       },
   ],
 };
+
+
+
+const finalStageQues = {
+     ques : [
+      {
+        ques1 : "where is dypcoe",
+        ans : "akurdi"
+      }
+     ]
+}

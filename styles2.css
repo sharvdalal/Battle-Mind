@@ -60,9 +60,15 @@ body{
         display: flex;
         align-items:center;
         justify-content: center;
-        font-size: 15px;
+        font-size: 1.5rem;
+        color: white;
+        font-weight: bold;
+        
 
         
+      }
+      .box:hover{
+        background-color: #79ab3c;
       }
       .box p{
         color: wheat;
