@@ -1,5 +1,5 @@
 let correctPathsOptions =[ 
-  ["img2","img7","img8","img13","img14","img15","img19","img20"],
+["img2","img7","img8","img13","img14","img15","img19","img20"],
 ["img2","img7","img12","img13","img18","img23","img24"],
 ["img6","img7","img8","img13","img14","img19","img20"],
 ["img6","img11","img16","img17","img22","img18","img23","img24"],
@@ -74,7 +74,7 @@ $("#img" + myCurrimg).html("<img src='images/swordsman.png'></img>");
 
 $(".box").on("click", function () {
   clickedOption = $(this).attr("id");
-  if (clickedOption === correctPaths[idx  ]) {
+  if (clickedOption === correctPaths[idx]) {
     $("#" + option1).html("");
     $("#" + option2).html("");
     $("#" + clickedOption).html("<img src='images/swordsman.png'></img>");
@@ -82,6 +82,8 @@ $(".box").on("click", function () {
     removeCurrImg = logicArray[myCurrentPosition[0]][myCurrentPosition[1]];
     $("#" + removeCurrImg).html("");
     
+
+    rightAnswerSound();
 
     var op1idx1 = possibleOptions[0][0];
     var op1idx2 = possibleOptions[0][1];
@@ -174,19 +176,25 @@ function giveOptionsIdx() {
 }
 
 
-function lastStage(){
+async function  lastStage(){
   randFinalStageQues();
   let question = finalStageQues.ques[finalRandIdx].ques1;
   let answer = finalStageQues.ques[finalRandIdx].ans;
 
   
-  let userAns = prompt(question);
+  let  userAns = await  swal({
+    
+    content: "input",
+    text : question,
+  });
 
   if(userAns == answer){
+    $
     winAudio();
     $("h1").text("You Win! Reload To Restart");
      removeCurrImg = logicArray[myCurrentPosition[0]][myCurrentPosition[1]];
     $("#" + removeCurrImg).html("");
+    $("#" + logicArray[myCurrentPosition[0]][myCurrentPosition[1]]).addClass("correctPath");
     $("#img25").html("<img src='/images/winningCastle.jpg'></img>");
 
   }
@@ -201,7 +209,7 @@ function lastStage(){
 function startOver() {
 
   $(".box").removeClass("correctPath");
-  redBlink();
+  
   $("#" + option1).html("");
   $("#" + option2).html("");  
   removeCurrImg = logicArray[myCurrentPosition[0]][myCurrentPosition[1]];
@@ -231,7 +239,8 @@ function startOver() {
 
   myAudio.pause();
   myAudio.load();
-  looseAudio();
+  wrongAnswerSound();
+  
 }
 
 
@@ -247,6 +256,21 @@ else{
   return randIdx;
  }
  }
+
+
+ $("#showRiddle").on("click",function(){
+
+  if(gameStarted == true){
+
+    giveRiddle(randIdx);
+  }
+  
+    
+  
+ });
+
+
+
 
 
 const questions = {        
@@ -362,8 +386,11 @@ const finalStageQues = {
      
 
      ]
-
 }
+
+
+
+
 
 function playSound()
 {
@@ -384,26 +411,28 @@ function playSound()
 	myAudio.play();
 }
 
-function winAudio(){
-  myAudio.pause();
-  myAudio.load();
-  let winaudio = new Audio("/Sounds/winning.mp3");
-  winaudio.play();
-}
 
-function looseAudio(){
-  myAudio.pause();
-  myAudio.load();
-  let looseaudio = new Audio("/Sounds/looseSound.mp3");
-  looseaudio.play();
-}
 
-function redBlink(){
+function wrongAnswerSound(){
   $("body").addClass("game-over");
-
   setTimeout(function(){
+  myAudio.pause();
+  myAudio.load();
+  let looseaudio = new Audio("/Sounds/wrong.mp3");
+  looseaudio.play();
     $("body").removeClass("game-over");
   },200);
 
 }
+
+function rightAnswerSound(){
+  
+  let rightAudio = new Audio("/Sounds/Right.mp3");
+  myAudio.volume = 0.02;
+  rightAudio.play();
+  myAudio.volume = 0.19;
+}
+
+
+
 

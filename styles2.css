@@ -51,6 +51,7 @@ body{
       
   
       .box{
+        cursor: pointer;
         background-color: #61892F;
         border: solid 1px black;
         line-height: 0px;
@@ -68,9 +69,11 @@ body{
         
       }
       .box:hover{
+      
         background-color: #79ab3c;
       }
       .box p{
+
         color: wheat;
       }
       
@@ -102,6 +105,11 @@ body{
       } */
       .correctPath{
         background-color: #79ab3c;
+      }
+
+      .swal-text{
+        font-size: 20px;
+        color: whitesmoke;
       }
 
 
