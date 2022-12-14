@@ -189,8 +189,8 @@ async function  lastStage(){
   });
 
   if(userAns == answer){
-    $
-    winAudio();
+    
+    finalWinAudio();
     $("h1").text("You Win! Reload To Restart");
      removeCurrImg = logicArray[myCurrentPosition[0]][myCurrentPosition[1]];
     $("#" + removeCurrImg).html("");
@@ -431,6 +431,13 @@ function rightAnswerSound(){
   myAudio.volume = 0.02;
   rightAudio.play();
   myAudio.volume = 0.19;
+}
+
+function finalWinAudio(){
+  let winAudio = new Audio("/Sounds/winning.mp3");
+  myAudio.pause();
+  myAudio.load();
+  winAudio.play();
 }
 
 
