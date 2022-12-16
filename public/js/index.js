@@ -1,4 +1,4 @@
-let correctPathsOptions =[
+let correctPathsOptions =[ 
   ["img2","img7","img8","img13","img14","img15","img19","img20"],
   ["img2","img7","img12","img13","img18","img23","img24"],
   ["img6","img7","img8","img13","img14","img19","img20"],
@@ -11,11 +11,11 @@ let correctPathsOptions =[
   ["img6","img11","img16","img21","img22","img23","img24"],
   ["img2","img3","img4","img5","img10","img15","img20"]
   ];
-
+  
   let randNoOfPaths = Math.random()*11;
   randNoOfPaths = Math.floor(randNoOfPaths);
   let correctPaths = correctPathsOptions[randNoOfPaths];
-
+  
    let logicArray = [
     ["img1", "img2", "img3", "img4", "img5"],
     ["img6", "img7", "img8", "img9", "img10"],
@@ -23,8 +23,8 @@ let correctPathsOptions =[
     ["img16", "img17", "img18", "img19", "img20"],
     ["img21", "img22", "img23", "img24", "img25"]
   ];
-
-
+  
+  
   let finalStage1 = [logicArray[logicArray.length - 2][logicArray.length-1]];
   let finalStage2 = [logicArray[logicArray.length - 1][logicArray.length-2]];
   let myCurrentPosition = [0, 0];
@@ -46,17 +46,17 @@ let correctPathsOptions =[
   let removeCurrImg =[];
   let isUnMute = true;
   const myAudio = new Audio("/public/Sounds/background.mp3");
-
-
-
-
-
-
+  
+  
+  
+  
+  
   $("#img" + myCurrimg).html("<img src='/public/images/swordsman.png'></img>");
-
-
+  
+  
        $(document).on("keydown", function () {
       if (!gameStarted) {
+       
         gameStarted = true;
         playSound();
       $("h1").text("Game Started!!");
@@ -66,11 +66,11 @@ let correctPathsOptions =[
     }
     });
     $(document).on("keydown", function(event){
-
+        
       if(event.keyCode == 32){
-
+   
       }
-
+      
     })
 
     $(".muteUnmute").on("click", function(){
@@ -85,31 +85,31 @@ let correctPathsOptions =[
         isUnMute = true;
       }
 
-
+      
     })
-
-
+  
+  
   $(".box").on("click", function () {
     clickedOption = $(this).attr("id");
     if (clickedOption === correctPaths[idx]) {
       $("#" + option1).html("");
       $("#" + option2).html("");
       $("#" + clickedOption).html("<img src='/public/images/swordsman.png'></img>");
-
+       
       removeCurrImg = logicArray[myCurrentPosition[0]][myCurrentPosition[1]];
       $("#" + removeCurrImg).html("");
-
-
+      
+  
       rightAnswerSound();
-
+  
       var op1idx1 = possibleOptions[0][0];
       var op1idx2 = possibleOptions[0][1];
       var op2idx1 = possibleOptions[1][0];
       var op2idx2 = possibleOptions[1][1];
-
+  
       var tempansoption = logicArray[op1idx1][op1idx2];
       $("#" + logicArray[myCurrentPosition[0]][myCurrentPosition[1]]).addClass("correctPath");
-
+  
       if (tempansoption === correctPaths[idx]) {
         myCurrentPosition = [op1idx1, op1idx2];
       } else {
@@ -123,40 +123,40 @@ let correctPathsOptions =[
         randIdxGenerator();
         giveRiddle(randIdx);
         Options();
-
+        
       }
-
+      
       }, 500);
-
+  
       } else {
       startOver();
     }
   });
-
+  
   function giveRiddle(randIdx) {
     var alt = questions.ques[randIdx].ques1;
     console.log(alt);
-
+  
     swal({
-         title:alt,
+         title:alt, 
       });
-
+     
   }
-
+  
   function Options() {
-
+  
     giveOptionsIdx();
     currect_option = questions.ques[randIdx].corr_ans;
     wrong_option = questions.ques[randIdx].wrong_ans;
-
+    
     var op1idx1 = possibleOptions[0][0];
     var op1idx2 = possibleOptions[0][1];
     var op2idx1 = possibleOptions[1][0];
     var op2idx2 = possibleOptions[1][1];
-
+  
     option1 = logicArray[op1idx1][op1idx2];
     option2 = logicArray[op2idx1][op2idx2];
-
+  
     if (option1 === correctPaths[idx]) {
       $("#" + option1).text(currect_option);
       $("#" + option2).text(wrong_option);
@@ -166,76 +166,76 @@ let correctPathsOptions =[
     }
   }
   function giveOptionsIdx() {
-
+    
     var optionsCount = 0;
     var i = 0;
     if (myCurrentPosition[1] < logicArray[0].length - 1) {
       possibleOptions[i] = [myCurrentPosition[0], myCurrentPosition[1] + 1];
       optionsCount++;
       i++;
-
+      
     } else {
       possibleOptions[i] = [myCurrentPosition[0] + 1, myCurrentPosition[1] - 1];
       optionsCount++;
       i++
-
+     
     }
-
+  
     if (myCurrentPosition[0] < logicArray.length - 1) {
       possibleOptions[i] = [myCurrentPosition[0] + 1, myCurrentPosition[1]];
       optionsCount++;
-
+      
     } else {
       possibleOptions[i] = [myCurrentPosition[0] - 1, myCurrentPosition[1] + 1];
       optionsCount++;
-
+      
     }
   }
-
-
+  
+  
   async function  lastStage(){
     randFinalStageQues();
     let question = finalStageQues.ques[finalRandIdx].ques1;
     let answer = finalStageQues.ques[finalRandIdx].ans;
-
-
+  
+    
     let  userAns = await  swal({
-
+      
       content: "input",
       text : question,
     });
-
+  
     if(userAns == answer){
-
+      
       finalWinAudio();
-      fireworkStart();
+      fire();
       $("h1").text("You Win! Reload To Restart");
        removeCurrImg = logicArray[myCurrentPosition[0]][myCurrentPosition[1]];
       $("#" + removeCurrImg).html("");
       $("#" + logicArray[myCurrentPosition[0]][myCurrentPosition[1]]).addClass("correctPath");
       $("#img25").html("<img src='/public/images/winningCastle.jpg'></img>");
-
+  
     }
     else{
       $("h1").text("you lose");
       startOver();
     }
-
+    
   }
-
-
+  
+  
   function startOver() {
-
+  
     $(".box").removeClass("correctPath");
-
+    
     $("#" + option1).html("");
-    $("#" + option2).html("");
+    $("#" + option2).html("");  
     removeCurrImg = logicArray[myCurrentPosition[0]][myCurrentPosition[1]];
     $("#" + removeCurrImg).html("");
-
+  
     $("#img" + myCurrimg).html("<img src='/public/images/swordsman.png'></img>");
     $("h1").text("Game Over... Press Any Key to Restart!!");
-
+  
     myCurrentPosition = [0, 0];
     myCurrimg = 1;
     gameStarted = false;
@@ -249,23 +249,23 @@ let correctPathsOptions =[
     clickedOption = "";
     idx = 0;
     set1.clear();
-
+  
     randNoOfPaths = Math.random()*11;
     randNoOfPaths = Math.floor(randNoOfPaths);
    correctPaths = correctPathsOptions[randNoOfPaths];
-
-
+  
+  
     myAudio.pause();
     myAudio.load();
     wrongAnswerSound();
-
+    
   }
-
-
+  
+  
   function randIdxGenerator(){
-   randIdx = Math.random()*12;
+   randIdx = Math.random()*12;  
   randIdx = Math.floor(randIdx);
-
+  
   if(set1.has(randIdx)){
     randIdxGenerator();
   }
@@ -274,25 +274,25 @@ let correctPathsOptions =[
     return randIdx;
    }
    }
-
-
+  
+  
    $("#showRiddle").on("click",function(){
     console.log("Show Riddle Clicked");
-
+  
     if(gameStarted == true){
-
+  
       giveRiddle(randIdx);
     }
-
-
-
+    
+      
+    
    });
-
-
-
-
-
-  const questions = {
+  
+  
+  
+  
+  
+  const questions = {        
     ques: [
       {
         ques1: "first progreamming language ever?",
@@ -371,15 +371,15 @@ let correctPathsOptions =[
         },
     ],
   };
-
-
-
+  
+  
+  
   function randFinalStageQues(){
       finalRandIdx = Math.random()*5;
       finalRandIdx = Math.floor(finalRandIdx);
       return finalRandIdx;
   }
-
+  
   const finalStageQues = {
        ques : [
         {
@@ -402,19 +402,19 @@ let correctPathsOptions =[
           ques1 : " I have lakes with no water, mountains with no stone and cities with no buildings. What am I?",
           ans : "map"
         },
-
-
+       
+  
        ]
   }
-
-
-
-
-
+  
+  
+  
+  
+  
   function playSound()
   {
-
-
+    
+    
     if (typeof myAudio.loop == 'boolean')
     {
       myAudio.loop = true;
@@ -429,9 +429,9 @@ let correctPathsOptions =[
     myAudio.volume = 0.19;
     myAudio.play();
   }
-
-
-
+  
+  
+  
   function wrongAnswerSound(){
     $("body").addClass("game-over");
     setTimeout(function(){
@@ -441,15 +441,15 @@ let correctPathsOptions =[
     looseaudio.play();
       $("body").removeClass("game-over");
     },200);
-
+  
   }
-
+  
   function rightAnswerSound(){
-
+    
     let rightAudio = new Audio("/public/Sounds/Right.mp3");
     rightAudio.play();
   }
-
+  
   function finalWinAudio(){
     let winAudio = new Audio("/public/Sounds/winning.mp3");
     myAudio.pause();
@@ -457,9 +457,14 @@ let correctPathsOptions =[
     winAudio.play();
   }
 
-  function fireworkStart(){
-    $("#fireWorks").addClass(".fireworksDiv");
+  function fire(){
+    $("#fire").addClass("fireworksDiv");
     const fireDiv = document.querySelector('.fireworksDiv');
     const fireworks = new Fireworks(fireDiv,{});
     fireworks.start();
   }
+  
+  
+  
+  
+  

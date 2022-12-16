@@ -28,7 +28,7 @@ h1 {
 }
 .volumeButton{
   position: relative;
-
+ 
 }
 .muteUnmute{
   height: 50px;
@@ -355,7 +355,7 @@ p {
         background-color: #222629;
       } */
 /* .swal-button:hover{
-         color: #79ab3c;
+         color: #79ab3c; 
         background: #222629;
       }   */
 .correctPath {
@@ -366,8 +366,8 @@ p {
 
 @media screen and (max-width: 1390px){
 .grid-container{
-  height: 28.75rem;
-  width: 28.75rem;
+  height: 28.75rem;    
+  width: 28.75rem;     
 }
  #h1-home{
   font-size: 2.5rem;
@@ -376,35 +376,35 @@ p {
   padding-top: 0.4rem;
  }
 .Mbtn-home{
-  margin-top: 3rem;
+  margin-top: 3rem; 
 }
 .potrait{
-  margin-top: 6.4rem;
+  margin-top: 6.4rem;  
 }
 #images{
   margin-left: 1rem;
 }
 .btn-home{
-  height: 2.8rem;
-  width: 10rem;
+  height: 2.8rem;          
+  width: 10rem;  
 }
 .Rules{
-  width: 70rem;
+  width: 70rem;  
 }
 #img2-flying{
   margin-left: 12rem;
 }
 .img3{
-  margin-left: 3rem;
+  margin-left: 3rem; 
 }
 #img4-zombie{
-  margin-left: 12rem;
+  margin-left: 12rem; 
 }
 #zombie-horse {
-  margin-left: 7rem;
+  margin-left: 7rem; 
 }
 #zombie-hand {
-  margin-left: 1rem;
+  margin-left: 1rem; 
 }
 
 
@@ -412,11 +412,15 @@ p {
 
 .fireworksDiv{
   position: absolute;
-
+  
   height: 500px;
   width: 100%;
-
+  
   top: 25%;
-  z-index: -1;
-
+  
 }
+
+
+
+
+  
