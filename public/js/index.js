@@ -46,13 +46,18 @@ let finalRandIdx = 0;
 let removeCurrImg = [];
 let isUnMute = true;
 const myAudio = new Audio("/public/Sounds/background.mp3");
-
+var screenWidth = window.screen.width;
+var screenHeight = window.screen.height;
+console.log(screenWidth + " " + screenHeight)
 
 
 
 
 $("#img" + myCurrimg).html("<img src='/public/images/swordsman.png'></img>");
 
+if(screenWidth > 850){
+
+$(".startButton").css({"visibility":"hidden"});
 
 $(document).on("keydown", function () {
   if (!gameStarted) {
@@ -65,6 +70,24 @@ $(document).on("keydown", function () {
     giveRiddle(randIdx);
   }
 });
+}
+
+else{
+  $(".mainPageHeading").css({"visibility":"hidden"});
+  $(".startButton").on("click", ()=>{
+  $(".startButton").html("Restart");
+  gameStarted = true;
+  playSound();
+
+  randIdxGenerator();
+  Options();
+  giveRiddle(randIdx);
+  })
+
+}
+
+
+
 $(document).on("keydown", function (event) {
 
   if (event.keyCode == 32) {
