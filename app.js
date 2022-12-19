@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 const app = express();
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 3000
 
 
 app.set("view engine","ejs");
@@ -18,5 +18,5 @@ app.post("/",function(req,res){
 });
 
 app.listen(PORT,function(){
-    console.log("server started on port 5000");
+    console.log("server started on port 3000");
 });

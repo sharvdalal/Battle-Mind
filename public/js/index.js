@@ -76,6 +76,7 @@ else{
   $(".mainPageHeading").css({"visibility":"hidden"});
   $(".startButton").on("click", ()=>{
   $(".startButton").html("Restart");
+  startOverRestart();
   gameStarted = true;
   playSound();
 
@@ -229,7 +230,7 @@ async function lastStage() {
   });
   let lowUserAns = userAns.toLowerCase();
 
-  if (lowUserAns == answer) {
+  if (lowUserAns.trim() == answer) {
 
     finalWinAudio();
     fire();
@@ -282,6 +283,36 @@ function startOver() {
   myAudio.pause();
   myAudio.load();
   wrongAnswerSound();
+
+}
+function startOverRestart(){
+  $(".box").removeClass("correctPath");
+  if(option1 != ""){
+    $("#" + option1).html("");
+    $("#" + option2).html("");
+  }
+ 
+  removeCurrImg = logicArray[myCurrentPosition[0]][myCurrentPosition[1]];
+  $("#" + removeCurrImg).html("");
+
+  $("#img" + myCurrimg).html("<img src='/public/images/swordsman.png'></img>");
+  myCurrentPosition = [0, 0];
+  myCurrimg = 1;
+  gameStarted = false;
+  idx1 = 0;
+  idx2 = 0;
+  possibleOptions = [];
+  option1Idx = [];
+  option2Idx = [];
+  option1 = "";
+  option2 = "";
+  clickedOption = "";
+  idx = 0;
+  set1.clear();
+
+  randNoOfPaths = Math.random() * 11;
+  randNoOfPaths = Math.floor(randNoOfPaths);
+  correctPaths = correctPathsOptions[randNoOfPaths];
 
 }
 
