@@ -15,10 +15,20 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
-
-h1 {
-  margin-top: 2 0px;
+h1{
+  margin-top: 20px;
   margin-bottom: unset;
+  font-size: 2.188rem;
+  text-align: center;
+  padding-bottom: 1.25rem;
+  color: whitesmoke;
+  font-weight: 900;
+}
+
+.mainPageHeading {
+ /* visibility: hidden; */
+  z-index: 2;
+  margin: 20px auto;
   font-size: 2.188rem;
   text-align: center;
   padding-bottom: 1.25rem;
@@ -26,31 +36,20 @@ h1 {
   font-weight: 900;
 
 }
-.mainPageHeading {
-  /* visibility: hidden; */
-   z-index: 2;
-   margin: 20px auto;
-   font-size: 2.188rem;
-   text-align: center;
-   padding-bottom: 1.25rem;
-   color: whitesmoke;
-   font-weight: 900;
- 
- }
- .mainHeading{
-   display: block;
-   display: flex;
-   justify-content: center;
-   align-items: center;
- }
- .mainStartButton{
-   display: block;
-   display: flex;
-   justify-content: center;
-   align-items: center;
- 
- }
- .startButton{
+.mainHeading{
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mainStartButton{
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.startButton{
   /* visibility: hidden; */
 
   margin:-83px 0;
@@ -65,10 +64,6 @@ h1 {
   font-size: 0.90rem;
   margin-left: 1.25rem;
 
-}
-
-.button {
-  text-align: center;
 }
 
 .btn {
@@ -504,15 +499,38 @@ padding-bottom: 1rem;
 
 }  
 
- @media only screen and (min-width:300px) and (max-width: 600px){  /* for mobile phones
-*/ 
-/* .heading{
-  width: 100%;
-} 
-.heading h1{
-  width: 100%;
-} */
+ @media only screen and (min-width:250px) and (max-width: 600px){  
+  
 
+  .picture{
+  
+  
+    float: left;
+   
+ }
+ .left-side{
+   padding-left: 0;
+   margin-left: 0;
+ }
+ 
+ 
+    .grid-container{
+ 
+    height: 20rem;    
+    width: 20rem;     
+  }
+ 
+  .box {
+   font-size: 0.5rem;
+  }
+  .muteUnmute{
+   height: 30px;
+   width: 30px;
+   filter: invert(90%);
+   right: 20px;
+   top: -63px;
+ }
+ 
 .Mbtn-home {
   height: 10rem;
   width: 15rem;
@@ -558,7 +576,7 @@ display: none;
   margin: auto;
   margin-top: 2rem;
   margin-bottom: 1rem;
-  padding-left: 3rem;
+  padding-left: 4rem;
   
 }
 
@@ -579,36 +597,22 @@ margin-left: 1.2rem;
 }
 .column {
   display: inline-block;
-  width: 60%;
+  width: 70%;
   margin:0rem;    
   padding-bottom: 2rem;   
 }
 .card{
   float: left;
-  width: 24.5rem;
+  width: 25rem;
 }
 .container{
   justify-content: center;
   display: block;
   width: 25rem;
 }
-
-
- .grid-container{
-margin-left :5rem;
-  height: 20rem;    
-  width: 20rem;     
+.aboutUs p{
+  
 }
-
-.box {
- font-size: 0.5rem;
-}
-.muteUnmute{
- height: 30px;
- width: 30px;
- filter: invert(90%);
- right: 20px;
- top: -63px;
-} 
  
- }   
+ 
+ }
