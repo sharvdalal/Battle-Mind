@@ -595,4 +595,3 @@ function fire() {
   const fireworks = new Fireworks(fireDiv, {});
   fireworks.start();
 }
-

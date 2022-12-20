@@ -15,41 +15,42 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
-h1{
-  margin-top: 20 px;
+
+h1 {
+  margin-top: 2 0px;
   margin-bottom: unset;
   font-size: 2.188rem;
   text-align: center;
   padding-bottom: 1.25rem;
   color: whitesmoke;
   font-weight: 900;
-}
 
+}
 .mainPageHeading {
- /* visibility: hidden; */
-  z-index: 2;
-  margin: 20px auto;
-  font-size: 2.188rem;
-  text-align: center;
-  padding-bottom: 1.25rem;
-  color: whitesmoke;
-  font-weight: 900;
-
-}
-.mainHeading{
-  display: block;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.mainStartButton{
-  display: block;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-}
-.startButton{
+  /* visibility: hidden; */
+   z-index: 2;
+   margin: 20px auto;
+   font-size: 2.188rem;
+   text-align: center;
+   padding-bottom: 1.25rem;
+   color: whitesmoke;
+   font-weight: 900;
+ 
+ }
+ .mainHeading{
+   display: block;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+ .mainStartButton{
+   display: block;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ 
+ }
+ .startButton{
   /* visibility: hidden; */
 
   margin:-83px 0;
@@ -122,11 +123,11 @@ img {
  
 }
 .muteUnmute{
-  height: 50px;
-  width: 50px;
+  height: 35px;
+  width: 35px;
   filter: invert(90%);
-  right: 349px;
-  top: -63px;
+  right: 49px;
+  top: -93px;
 }
 .mute{
   background-image: url(/public/images/volume-mute.png);
@@ -140,11 +141,11 @@ img {
   background-color: #4d7023;
   width: 100%;
 }
-html {
+html{
   scroll-behavior: smooth;
 }
 
-#h1-home {
+.heading h1{
   color: whitesmoke;
   margin-top: 0;
   padding: 1.85rem;
@@ -320,6 +321,9 @@ p {
 .aboutUs {
 
   text-align: center;
+  justify-content: center;
+  justify-items: center;
+  margin: auto;
 }
 
 .column {
@@ -500,28 +504,44 @@ padding-bottom: 1rem;
 
 }  
 
-@media only screen and (min-width:300px) and (max-width: 600px){  /*for mobile phones*/
-  
-.picture{
-  
-  
-   float: left;
+ @media only screen and (min-width:300px) and (max-width: 600px){  /* for mobile phones
+*/ 
+/* .heading{
+  width: 100%;
+} 
+.heading h1{
+  width: 100%;
+} */
+
+.Mbtn-home {
+  height: 10rem;
+  width: 15rem;
+  margin: auto;
+  margin-top: 3rem;
+  margin-bottom: 10rem;                   
+}
+.btn-home {
+  font-size: 1rem;
+  height: 2.5rem;          
+  width: 8rem;            
+  margin: 1rem;
+}
+
+.potrait{
+ 
+ width:100%;
+ margin-bottom: 0rem;
+display: none;
   
 }
 .left-side{
   padding-left: 0;
   margin-left: 0;
 }
+ .grid-container{
 
-
-   .grid-container{
-
-   height: 20rem;    
-   width: 20rem;     
- }
-
- .box {
-  font-size: 0.5rem;
+   height: 28.75rem;    
+   width: 28.75rem;     
  }
  .muteUnmute{
   height: 30px;
@@ -530,6 +550,65 @@ padding-bottom: 1rem;
   right: 20px;
   top: -63px;
 }
+.Rules {
+  
+  width: 21.5rem;
+  display: inline-block;   
+  justify-content: center;      
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-left: 3rem;
+  
+}
+
+.rule-img {
+
+  height: 38rem;
+   justify-content: center;
+  width: 25rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+.rule-img img{
+margin-left: 1.2rem;
+}
+.row{
+  justify-content: center;
+  display: inline-block;
+}
+.column {
+  display: inline-block;
+  width: 60%;
+  margin:0rem;    
+  padding-bottom: 2rem;   
+}
+.card{
+  float: left;
+  width: 24.5rem;
+}
+.container{
+  justify-content: center;
+  display: block;
+  width: 25rem;
+}
+
+
+ .grid-container{
+margin-left :5rem;
+  height: 20rem;    
+  width: 20rem;     
+}
+
+.box {
+ font-size: 0.5rem;
+}
+.muteUnmute{
+ height: 30px;
+ width: 30px;
+ filter: invert(90%);
+ right: 20px;
+ top: -63px;
+} 
  
- 
- }  
+ }   
