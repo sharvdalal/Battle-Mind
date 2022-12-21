@@ -73,13 +73,16 @@ $(document).on("keydown", function () {
 }
 
 else{
+  
   $(".mainPageHeading").css({"visibility":"hidden"});
   $(".startButton").on("click", ()=>{
   $(".startButton").html("Restart");
+  if(atLastStage){
+    location.reload();
+  }
   startOverRestart();
   gameStarted = true;
   playSound();
-
   randIdxGenerator();
   Options();
   giveRiddle(randIdx);
@@ -613,4 +616,6 @@ function fire() {
   const fireDiv = document.querySelector('.fireworksDiv');
   const fireworks = new Fireworks(fireDiv, {});
   fireworks.start();
+
+ 
 }
